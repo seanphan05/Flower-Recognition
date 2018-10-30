@@ -70,49 +70,48 @@
 
 - Building the model from scratch by stacking dense layers with appropriate number of layers chosen and number of hidden units for each layer. The model  will also be added with max-pooling layers, dropout, and data augmentation to prevent overfitting. The detail of this model is given below.
 
-Model
+**Model**
 ____________________________________________________________________________
-Layer (type)                                             Output Shape                        Param       
-=========================================================================
+Layer (type)                                             Output Shape                        Param  #     
+____________________________________________________________________________
 conv2d_1 (Conv2D)                                (None, 148, 148, 32)              896          
 ____________________________________________________________________________
 Batch_normalization_1                           (None, 148, 148, 32)              128          
 ____________________________________________________________________________
-max_pooling2d_1 (MaxPooling2D)         (None, 74, 74, 32)                  0            
+max_pooling2d_1 (MaxPooling2D)         		(None, 74, 74, 32)                  0            
 ____________________________________________________________________________
 conv2d_2 (Conv2D)                                (None, 72, 72, 64)                 18496        
 ____________________________________________________________________________
-max_pooling2d_2 (MaxPooling2D)        (None, 36, 36, 64)                0            
+max_pooling2d_2 (MaxPooling2D)      		  (None, 36, 36, 64)                0            
 ____________________________________________________________________________
 conv2d_3 (Conv2D)                                (None, 34, 34, 128)              73856        
 ____________________________________________________________________________
-max_pooling2d_3 (MaxPooling2D)        (None, 17, 17, 128)               0            
+max_pooling2d_3 (MaxPooling2D)       		 (None, 17, 17, 128)               0            
 ____________________________________________________________________________
 conv2d_4 (Conv2D)                               (None, 15, 15, 128)               147584       
 ____________________________________________________________________________
-max_pooling2d_4 (MaxPooling2D)        (None, 7, 7, 128)                  0            
+max_pooling2d_4 (MaxPooling2D)     		 (None, 7, 7, 128)                  0            
 ____________________________________________________________________________
-flatten_1 (Flatten)                                   (None, 6272)                        0            
+flatten_1 (Flatten)                               (None, 6272)                        0            
 ____________________________________________________________________________
 dropout_1 (Dropout)                               (None, 6272)                        0            
 ____________________________________________________________________________
 dense_1 (Dense)                                    (None, 512)                          3211776      
 ____________________________________________________________________________
 dense_2 (Dense)                                    (None, 5)                              2565         
-=========================================================================
+
 Total params: 3,455,301
 Trainable params: 3,455,237
 Non-trainable params: 64
 ____________________________________________________________________________
 
 
-
 - Building the model using VGG16 architecture from Keras. This pretrained convolutional base will be used in order to extract features from images. The convolutional base finally will be fed into a densely connected classifier with dropout layers added. Due to the limits of time and computational cost, it was impossible for me to apply data augmentation into this model. The detail of the architecture of the VGG16 convolutional base is given below.
 
-Model
+**Model**
 ____________________________________________________________________________
 Layer (type)                           Output Shape                    Param #      
-=========================================================================
+____________________________________________________________________________
 input_1 (InputLayer)                  (None, 150, 150, 3)                0            
 ____________________________________________________________________________
 block1_conv1 (Conv2D)                 (None, 150, 150, 64)              1792         
@@ -150,7 +149,7 @@ ____________________________________________________________________________
 block5_conv3 (Conv2D)                 (None, 9, 9, 512)                  2359808      
 ____________________________________________________________________________
 block5_pool (MaxPooling2D)            (None, 4, 4, 512)                0            
-=========================================================================
+____________________________________________________________________________
 Total params: 14,714,688
 Trainable params: 14,714,688
 Non-trainable params: 0
