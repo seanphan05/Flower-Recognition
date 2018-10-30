@@ -20,7 +20,7 @@ The goal is to train a CNN model that would be able to classify flowers into fiv
 
 3.	Algorithms and Techniques
 
-3.1	Layers :
+3.1		Layers :
 
 
 Convolution: Convolution layers learn local patterns of the image such as edges, lines, colors and other visual elements. Two key characteristics of convolution network is that learned patterns are translation invariance which means they are learned only once time during the process, and patterns can be learned in spatial hierarchies which means one layer will learn a small local pattern, another will learn a larger local pattern and so on.
@@ -166,11 +166,14 @@ Both approaches will have the same model configuration which are optimizer (opti
 5.1	Model Evaluation
 
 In first approach, during training time, I trained data with 100 epochs, It took around 4 hours to complete training process. The model returns validation loss at 0.8181 and validation accuracy of 69% while model accuracy is 68.6%. Look like the model seems not to be performing well. When I applied the model to classify test data, it show its terrible result with just only around 20% of images are correctly classified. After doing some tuning in parameters such as changing layers’ units, filters as well as learning rates in optimizer, the model has not significantly improved.
+
 Figure 1: Training and validation metrics using data augmentation
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/Rplot01.png)
 
 In the second approach, I trained model with 30 epochs, each epoch took around 2 minutes. This approach is quite faster than the previous method, since the process only need to deal with 2 dense layers. More than that, the validation accuracy is 77.9% and the model accuracy is much better with 89.2%. After applying the model on testing data, I received the accuracy of 81.2% far better than the previous approach with just 20%.
 
 Figure 2: Training and validation metrics using pretrained base and feature extraction
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/Rplot.png)
 
 Overall, the best model so far is using pretrained convolutional base from VGG16 architecture with dropout batch normalization to prevent overfitting. 
 
@@ -184,19 +187,18 @@ Overall, the best model so far is using pretrained convolutional base from VGG16
 
 The figure 3 below illustrate the original image compare to the second channel of the activation of the first layer of testing daisy image
 
-Figure 3: Original vs Second Channel of the Activation of the First Layer 
-on the Test Daisy Picture
+Figure 3: Original vs Second Channel of the Activation of the First Layer on the Test Daisy Picture
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy1.png)
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy2.png)
+
 Figure 4: List of visualization for  every channel in every intermediate activation
 
 Figure 4.1: Conv2d_3 (daisy_activations_3)
-
-
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy_activations_3_.png)
 Figure 4.2: Conv2d_5 (daisy_activation_5)
-
-
-
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy_activations_5_.png)
 Figure 4.3: Conv2d_8 (daisy_activation_8)
-	
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy_activations_8_.png)	
 
 	
 As we can see during the very beginning layers, the activations collected all information from image inputs, that is the reason why it is very visually interpretable. Going into deeper layers, the activations started obtaining more information related to class of the image such as “flower core”, “petal shape” or “petal patterns”. Thus, latest layers are less likely to carry the information of visual content of the image. The number of blank filters in following layers is increasing since the pattern encoded by the filter cannot be found in the input image. 
@@ -217,8 +219,8 @@ class_name class_description       		score
 	The next visualization is a comparison of original image with the one have superimposing the class activation heatmap on. This clearly shows that base on which part of the flower in image, the convnet make its final classification decision.
  
 Figure 5: Original vs Superimposing the Class Activation Heatmap on the Original Picture
-
-
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy3.png)
+![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy4.png)
 
 	It is more likely that convnet classified the image as a daisy image based on the shape of petals around the flower core.
 
