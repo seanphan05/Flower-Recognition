@@ -111,13 +111,13 @@ ____________________________________________________________________________
 
 Model
 ____________________________________________________________________________
-Layer (type)                                       Output Shape                       Param #      
+Layer (type)                           Output Shape                    Param #      
 =========================================================================
-input_1 (InputLayer)                         (None, 150, 150, 3)                0            
+input_1 (InputLayer)                  (None, 150, 150, 3)                0            
 ____________________________________________________________________________
-block1_conv1 (Conv2D)                   (None, 150, 150, 64)              1792         
+block1_conv1 (Conv2D)                 (None, 150, 150, 64)              1792         
 ____________________________________________________________________________
-block1_conv2 (Conv2D)                   (None, 150, 150, 64)              36928        
+block1_conv2 (Conv2D)                 (None, 150, 150, 64)              36928        
 ____________________________________________________________________________
 block1_pool (MaxPooling2D)            (None, 75, 75, 64)                 0            
 ____________________________________________________________________________
@@ -229,14 +229,11 @@ ____________________________________________________________________________
 **Figure 5: Original vs Superimposing the Class Activation Heatmap on the Original Picture**
 
 ![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy3.png)
+<br/>
 ![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy4.png)
+<br/>
 
-<img align="left" width="100" height="100" src="https://github.com/seanphan05/Flower-Recognition/blob/master/daisy3.png">
-
-<img align="right" width="100" height="100" src="https://github.com/seanphan05/Flower-Recognition/blob/master/daisy3.png">
-
-
-   It is more likely that convnet classified the image as a daisy image based on the shape of petals around the flower core.
+It is more likely that convnet classified the image as a daisy image based on the shape of petals around the flower core.
 
 
 
