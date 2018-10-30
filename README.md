@@ -71,90 +71,92 @@
 - Building the model from scratch by stacking dense layers with appropriate number of layers chosen and number of hidden units for each layer. The model  will also be added with max-pooling layers, dropout, and data augmentation to prevent overfitting. The detail of this model is given below.
 
 **Model**
+<pre>
 ____________________________________________________________________________
-Layer (type)                                             Output Shape                        Param  #     
+Layer (type)                         Output Shape                   Param  #     
+============================================================================
+conv2d_1 (Conv2D)                    (None, 148, 148, 32)           896          
 ____________________________________________________________________________
-conv2d_1 (Conv2D)                                (None, 148, 148, 32)              896          
+Batch_normalization_1                (None, 148, 148, 32)           128          
 ____________________________________________________________________________
-Batch_normalization_1                           (None, 148, 148, 32)              128          
+max_pooling2d_1 (MaxPooling2D)       (None, 74, 74, 32)             0            
 ____________________________________________________________________________
-max_pooling2d_1 (MaxPooling2D)         		(None, 74, 74, 32)                  0            
+conv2d_2 (Conv2D)                    (None, 72, 72, 64)             18496        
 ____________________________________________________________________________
-conv2d_2 (Conv2D)                                (None, 72, 72, 64)                 18496        
+max_pooling2d_2 (MaxPooling2D)       (None, 36, 36, 64)             0            
 ____________________________________________________________________________
-max_pooling2d_2 (MaxPooling2D)      		  (None, 36, 36, 64)                0            
+conv2d_3 (Conv2D)                    (None, 34, 34, 128)            73856        
 ____________________________________________________________________________
-conv2d_3 (Conv2D)                                (None, 34, 34, 128)              73856        
+max_pooling2d_3 (MaxPooling2D)       (None, 17, 17, 128)            0            
 ____________________________________________________________________________
-max_pooling2d_3 (MaxPooling2D)       		 (None, 17, 17, 128)               0            
+conv2d_4 (Conv2D)                    (None, 15, 15, 128)            147584       
 ____________________________________________________________________________
-conv2d_4 (Conv2D)                               (None, 15, 15, 128)               147584       
+max_pooling2d_4 (MaxPooling2D)       (None, 7, 7, 128)              0            
 ____________________________________________________________________________
-max_pooling2d_4 (MaxPooling2D)     		 (None, 7, 7, 128)                  0            
+flatten_1 (Flatten)                  (None, 6272)                   0            
 ____________________________________________________________________________
-flatten_1 (Flatten)                               (None, 6272)                        0            
+dropout_1 (Dropout)                  (None, 6272)                   0            
 ____________________________________________________________________________
-dropout_1 (Dropout)                               (None, 6272)                        0            
+dense_1 (Dense)                      (None, 512)                    3211776      
 ____________________________________________________________________________
-dense_1 (Dense)                                    (None, 512)                          3211776      
-____________________________________________________________________________
-dense_2 (Dense)                                    (None, 5)                              2565         
-
+dense_2 (Dense)                      (None, 5)                      2565         
+============================================================================
 Total params: 3,455,301
 Trainable params: 3,455,237
 Non-trainable params: 64
 ____________________________________________________________________________
-
+</pre>
 
 - Building the model using VGG16 architecture from Keras. This pretrained convolutional base will be used in order to extract features from images. The convolutional base finally will be fed into a densely connected classifier with dropout layers added. Due to the limits of time and computational cost, it was impossible for me to apply data augmentation into this model. The detail of the architecture of the VGG16 convolutional base is given below.
 
 **Model**
+<pre>
 ____________________________________________________________________________
-Layer (type)                           Output Shape                    Param #      
+Layer (type)                           Output Shape                  Param #      
+============================================================================
+input_1 (InputLayer)                  (None, 150, 150, 3)            0            
 ____________________________________________________________________________
-input_1 (InputLayer)                  (None, 150, 150, 3)                0            
+block1_conv1 (Conv2D)                 (None, 150, 150, 64)           1792         
 ____________________________________________________________________________
-block1_conv1 (Conv2D)                 (None, 150, 150, 64)              1792         
+block1_conv2 (Conv2D)                 (None, 150, 150, 64)           36928        
 ____________________________________________________________________________
-block1_conv2 (Conv2D)                 (None, 150, 150, 64)              36928        
+block1_pool (MaxPooling2D)            (None, 75, 75, 64)             0            
 ____________________________________________________________________________
-block1_pool (MaxPooling2D)            (None, 75, 75, 64)                 0            
+block2_conv1 (Conv2D)                 (None, 75, 75, 128)            73856        
 ____________________________________________________________________________
-block2_conv1 (Conv2D)                 (None, 75, 75, 128)                73856        
+block2_conv2 (Conv2D)                 (None, 75, 75, 128)            147584       
 ____________________________________________________________________________
-block2_conv2 (Conv2D)                 (None, 75, 75, 128)                147584       
+block2_pool (MaxPooling2D)            (None, 37, 37, 128)            0            
 ____________________________________________________________________________
-block2_pool (MaxPooling2D)            (None, 37, 37, 128)              0            
+block3_conv1 (Conv2D)                 (None, 37, 37, 256)            295168       
 ____________________________________________________________________________
-block3_conv1 (Conv2D)                 (None, 37, 37, 256)                295168       
+block3_conv2 (Conv2D)                 (None, 37, 37, 256)            590080       
 ____________________________________________________________________________
-block3_conv2 (Conv2D)                 (None, 37, 37, 256)                590080       
+block3_conv3 (Conv2D)                 (None, 37, 37, 256)            590080       
 ____________________________________________________________________________
-block3_conv3 (Conv2D)                 (None, 37, 37, 256)                590080       
+block3_pool (MaxPooling2D)            (None, 18, 18, 256)            0            
 ____________________________________________________________________________
-block3_pool (MaxPooling2D)            (None, 18, 18, 256)              0            
+block4_conv1 (Conv2D)                 (None, 18, 18, 512)            1180160      
 ____________________________________________________________________________
-block4_conv1 (Conv2D)                 (None, 18, 18, 512)                1180160      
+block4_conv2 (Conv2D)                 (None, 18, 18, 512)            2359808      
 ____________________________________________________________________________
-block4_conv2 (Conv2D)                 (None, 18, 18, 512)                2359808      
+block4_conv3 (Conv2D)                 (None, 18, 18, 512)            2359808      
 ____________________________________________________________________________
-block4_conv3 (Conv2D)                 (None, 18, 18, 512)                2359808      
+block4_pool (MaxPooling2D)            (None, 9, 9, 512)              0            
 ____________________________________________________________________________
-block4_pool (MaxPooling2D)            (None, 9, 9, 512)                 0            
+block5_conv1 (Conv2D)                 (None, 9, 9, 512)              2359808      
 ____________________________________________________________________________
-block5_conv1 (Conv2D)                 (None, 9, 9, 512)                  2359808      
+block5_conv2 (Conv2D)                 (None, 9, 9, 512)              2359808      
 ____________________________________________________________________________
-block5_conv2 (Conv2D)                 (None, 9, 9, 512)                  2359808      
+block5_conv3 (Conv2D)                 (None, 9, 9, 512)              2359808      
 ____________________________________________________________________________
-block5_conv3 (Conv2D)                 (None, 9, 9, 512)                  2359808      
-____________________________________________________________________________
-block5_pool (MaxPooling2D)            (None, 4, 4, 512)                0            
-____________________________________________________________________________
+block5_pool (MaxPooling2D)            (None, 4, 4, 512)              0            
+============================================================================
 Total params: 14,714,688
 Trainable params: 14,714,688
 Non-trainable params: 0
 ____________________________________________________________________________
-
+</pre>
 
 - Both approaches will have the same model configuration which are optimizer (optimizer_rmsprop), loss function (categorical_crossentropy), and metrics (accuracy).
 
