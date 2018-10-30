@@ -225,7 +225,7 @@ ____________________________________________________________________________
 
    Unsurprisingly, the image had been classified as a daisy image with the highest score at 99.21%. there is 0.226% chance that the image will be classified as ant image, and 0.102% it is an bee image. Apparently, VGG16 network model had been done very well at its job to correctly classify this daisy image at a very high score.
 
-   The next visualization is a comparison of original image with the one have superimposing the class activation heatmap on. This clearly shows that base on which part of the flower in image, the convnet make its final classification decision.
+   The next visualization is a comparison of original image with the one have superimposing the class activation heatmap on. This clearly shows the evidence that based on which part of the flower in image, the convnet make its final classification decision.
  
 **Figure 5: Original vs Superimposing the Class Activation Heatmap on the Original Picture**
 
