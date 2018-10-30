@@ -214,11 +214,12 @@ ____________________________________________________________________________
    Visualizing heatmaps of class activation is very helpful when the users want to know which parts of the training image make the convnet classify that image into given classes. Moreover, object in image can also be able to located using this technique. This technique use VGG16 model to process a daisy image that I randomly picked from the testing data. 
    After loading network from VGG16 architecture and processing a random testing daisy image on it, the top three classes predicted for this image are given below:
   
-**class_name class_description			score**
 
-1  n11939491            	 		daisy 0.992138445
-2  n02219486               			ant 0.002262975
-3  n02206856               			bee 0.001018253
+| class_name   | class_description | score      |
+| -------------|:-----------------:| ----------:|
+|1  n11939491  | daisy             | 0.992138445|
+|2  n02219486  | ant               | 0.002262975|
+|3  n02206856  | bee               | 0.001018253|
 
 
    Unsurprisingly, the image had been classified as a daisy image with the highest score at 99.21%. there is 0.226% chance that the image will be classified as ant image, and 0.102% it is an bee image. Apparently, VGG16 network model had been done very well at its job to correctly classify this daisy image at a very high score.
@@ -230,12 +231,20 @@ ____________________________________________________________________________
 ![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy3.png)
 ![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/daisy4.png)
 
+<img align="left" width="100" height="100" src="https://github.com/seanphan05/Flower-Recognition/blob/master/daisy3.png">
+
+<img align="right" width="100" height="100" src="https://github.com/seanphan05/Flower-Recognition/blob/master/daisy3.png">
+
+
    It is more likely that convnet classified the image as a daisy image based on the shape of petals around the flower core.
 
 
 
-**Reference:
+**Reference:**
+
 Deep Learning with R - Francois Chollet and Joseph J. Allaire
+
 Flower Images from Flower Recognition at Kaggle
-Google image websites**
+
+Google image websites
 	
