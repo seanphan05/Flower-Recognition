@@ -172,7 +172,7 @@ ____________________________________________________________________________
 
 ![Alt text](https://github.com/seanphan05/Flower-Recognition/blob/master/Rplot01.png)
 
-   In the second approach, I trained model with 30 epochs, each epoch took around 2 minutes. This approach is quite faster than the previous method, since the process only need to deal with 2 dense layers. More than that, the validation accuracy is 77.9% and the model accuracy is much better with 89.2%. After applying the model on testing data, I received the accuracy of 81.2% far better than the previous approach with just 20%.
+   In the second approach, I trained model with 30 epochs, each epoch took around 2 minutes. This approach is quite faster than the previous method, since the process only need to deal with 2 dense layers. More than that, the validation accuracy is 77.9% and the model accuracy is much better with 89.2%. After applying the model on testing data, I received the accuracy of 81.2% far better than the previous approach with just 20%. It seems the model become overfitting after 6 or 7 epochs. 
 
 **Figure 2: Training and validation metrics using pretrained base and feature extraction**
 
