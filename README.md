@@ -212,7 +212,7 @@ ____________________________________________________________________________
 
 **5.2.2	Visualization by visualizing heatmaps of class activation**
 
-   Visualizing heatmaps of class activation is very helpful when the users want to know which parts of the training image make the convnet classify that image into given classes. Moreover, object in image can also be able to located using this technique. This technique use VGG16 model to process a daisy image that I randomly picked from the testing data. 
+   Visualizing heatmaps of class activation is very helpful when the users want to know which parts of the training image make the convnet classify that image into given classes. Moreover, object in image can be also located using this technique. It uses VGG16 model to process a daisy image that I randomly picked from the testing data. 
    After loading network from VGG16 architecture and processing a random testing daisy image on it, the top three classes predicted for this image are given below:
   
 
@@ -223,7 +223,7 @@ ____________________________________________________________________________
 |3  n02206856  | bee               | 0.001018253|
 
 
-   Unsurprisingly, the image had been classified as a daisy image with the highest score at 99.21%. there is 0.226% chance that the image will be classified as ant image, and 0.102% it is an bee image. Apparently, VGG16 network model had been done very well at its job to correctly classify this daisy image at a very high score.
+   Unsurprisingly, the image had been classified as a daisy image with the highest score at 99.21%. there is 0.226% chance that the image will be classified as an ant image, and 0.102% it is a bee image. Apparently, VGG16 network model had been done very well at its job to correctly classify this daisy image at a very high score.
 
    The next visualization is a comparison of original image with the one have superimposing the class activation heatmap on. This clearly shows the evidence that based on which part of the flower in image, the convnet make its final classification decision.
  
